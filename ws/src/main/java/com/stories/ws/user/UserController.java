@@ -26,14 +26,24 @@ public class UserController {
 	// CrossOrigin ui ile backend arasındaki port problemi için kullanılır.
 	@PostMapping("/api/1.0/users")
 	public ResponseEntity<?> createUser(@RequestBody User user) {
+		ApiError errorApi = new ApiError(400, "validation Error", "/api/1.0/users");
+		Map<String, String> validationErrors = new HashMap<>();
 		String username = user.getUsername();
-		if(username == null || username.isEmpty()) {
-			ApiError errorApi = new ApiError(400, "validation Error", "/api/1.0/users");
-			Map<String, String> validationErrors = new HashMap<>();
+		String displayName = user.getDisplayname();
+		
+		if (username == null || username.isEmpty()) {
 			validationErrors.put("username", "Username cannot be null");
+		}
+
+		if (displayName == null || displayName.isEmpty()) {
+			validationErrors.put("displayName", "Cannot be null");
+		}
+
+		if (validationErrors.size() > 0) {
 			errorApi.setValidationErrors(validationErrors);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorApi);
 		}
+		
 		userService.save(user);
 		return ResponseEntity.ok("user created");
 	}
