@@ -22,7 +22,7 @@ import javax.validation.constraints.NotNull.List;
 @Constraint(validatedBy = { UniqUsernameValidator.class})
 public @interface UniqueUsername {
 
-	String message() default "{Username must be unique}";
+	String message() default "{stories.constraint.username.UniqueUsername.message}";
 
 	Class<?>[] groups() default { };
 

@@ -18,7 +18,7 @@ public class User {
 	@GeneratedValue
 	private long id;
 	
-	@NotNull
+	@NotNull(message="{stories.constraint.username.NotNull.message}")
 	@Size(min=4, max=64)
 	//@Column(unique = true)
 	@UniqueUsername
@@ -30,7 +30,7 @@ public class User {
 	
 	@NotNull
 	@Size(min=8, max=64)
-	//@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")
+	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$" , message="{stories.constraint.password.Pattern.message}")
 	private String password;
 	
 	
