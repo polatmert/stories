@@ -30,7 +30,7 @@ public class User {
 	
 	@NotNull
 	@Size(min=8, max=64)
-	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$" , message="{stories.constraint.password.Pattern.message}")
+	//@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$" , message="{stories.constraint.password.Pattern.message}")
 	private String password;
 	
 	

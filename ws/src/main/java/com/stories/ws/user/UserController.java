@@ -37,6 +37,8 @@ public class UserController {
 		return new GenericResponse("user created");
 	}
 	
+
+	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ApiError handleValidationException(MethodArgumentNotValidException exception) {
