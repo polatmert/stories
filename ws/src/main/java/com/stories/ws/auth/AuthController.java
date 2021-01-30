@@ -1,6 +1,8 @@
 package com.stories.ws.auth;
 
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -16,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.stories.ws.error.ApiError;
 import com.stories.ws.shared.GenericResponse;
+import com.stories.ws.shared.Views;
 import com.stories.ws.user.User;
 import com.stories.ws.user.UserRepository;
 
@@ -30,6 +34,7 @@ public class AuthController {
 	PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 	@PostMapping("/api/1.0/auth")
+	@JsonView(Views.Base.class)
 	ResponseEntity<?> handleAuthentication(
 			@RequestHeader(name = "Authorization", required = false) String authorization) {
 
@@ -57,6 +62,7 @@ public class AuthController {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
 		}
 
-		return ResponseEntity.ok().build();
+		
+		return ResponseEntity.ok(inDB);
 	}
 }

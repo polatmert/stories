@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import com.stories.ws.user.User;
 import com.stories.ws.user.UserService;
 
-@SpringBootApplication(exclude = SecurityAutoConfiguration.class)
+@SpringBootApplication
 public class WsApplication {
 
 	public static void main(String[] args) {
