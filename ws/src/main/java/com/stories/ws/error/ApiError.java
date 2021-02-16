@@ -33,4 +33,55 @@ public class ApiError {
 		this.path = path;
 	}
 
+	public ApiError(int status, String message, String path, long timestamp, Map<String, String> validationErrors) {
+		this.status = status;
+		this.message = message;
+		this.path = path;
+		this.timestamp = timestamp;
+		this.validationErrors = validationErrors;
+	}
+
+	public ApiError(Map<String, String> validationErrors) {
+		this.validationErrors = validationErrors;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	public Map<String, String> getValidationErrors() {
+		return validationErrors;
+	}
+
+	public void setValidationErrors(Map<String, String> validationErrors) {
+		this.validationErrors = validationErrors;
+	}
 }
