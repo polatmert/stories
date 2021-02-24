@@ -21,10 +21,9 @@ public class UserAuthService implements UserDetailsService{
 		User inDB = userRepository.findByUsername(username);
 		
 		if(inDB == null)
-			throw new UsernameNotFoundException("USer not found");
+			throw new UsernameNotFoundException("User not found");
 		
-		return new StoriesUserDetails(inDB);
+		return inDB;
 
 	}
-
 }
