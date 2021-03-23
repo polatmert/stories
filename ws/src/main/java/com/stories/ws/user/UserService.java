@@ -16,8 +16,8 @@ public class UserService {
 	}
 
 	public void save(User user) {
-		String encyptedPassword =  this.passwordEncoder.encode(user.getPassword());
-		user.setPassword(encyptedPassword);
+		String encryptedPassword =  this.passwordEncoder.encode(user.getPassword());
+		user.setPassword(encryptedPassword);
 		userRepository.save(user);
 	}
 

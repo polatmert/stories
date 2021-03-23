@@ -1,15 +1,16 @@
 package com.stories.ws.shared;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 public class GenericResponse {
 
 	private String message;
 
-	public String getMessage() {
+    public GenericResponse(String user_created) {
+    }
+
+    public String getMessage() {
 		return message;
 	}
 
